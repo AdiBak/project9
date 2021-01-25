@@ -3,6 +3,7 @@ package team3647.frc2021.subsystems;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
@@ -14,6 +15,8 @@ public class Drivetrain extends SubsystemBase {
     private VictorSPX vSpx1_right = new VictorSPX(5);
     private VictorSPX vSpx2_right = new VictorSPX(6);
     private TalonSRX tSrx_right = new TalonSRX(4);
+
+    //DifferentialDrive drive = new DifferentialDrive(tSrx_left, tSrx_right);
 
   public Drivetrain(){
     //VictorSPX should follow TalonSRX's current demand
@@ -30,5 +33,9 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler runs
+  }
+
+  public void arcadeDrive(){
+
   }
 }

@@ -6,18 +6,23 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
-   // private VictorSPX vSpx1_left = new VictorSPX(1);
-    private VictorSPX vSpx2_left = new VictorSPX(2);
-    private TalonSRX tSrx_left = new TalonSRX(1);
+  //initializing motor controllers
+    private VictorSPX vSpx1_left = new VictorSPX(12);
+    private VictorSPX vSpx2_left = new VictorSPX(13);
+    private TalonSRX tSrx_left = new TalonSRX(9);
 
-   // private VictorSPX vSpx1_right = new VictorSPX(3);
-    private VictorSPX vSpx2_right = new VictorSPX(4);
-    private TalonSRX tSrx_right = new TalonSRX(3);
+    private VictorSPX vSpx1_right = new VictorSPX(5);
+    private VictorSPX vSpx2_right = new VictorSPX(6);
+    private TalonSRX tSrx_right = new TalonSRX(4);
 
   public Drivetrain(){
+    //VictorSPX should follow TalonSRX's current demand
+    vSpx1_left.follow(tSrx_left);
     vSpx2_left.follow(tSrx_left);
-    vSpx2_right.follow(tSrx_right);
 
+    vSpx1_right.follow(tSrx_right);
+    vSpx2_right.follow(tSrx_right);
+    
     tSrx_right.setInverted(true);
     tSrx_left.setInverted(false);
   }

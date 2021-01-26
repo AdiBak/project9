@@ -69,7 +69,7 @@ Functions*/
     }
 
     public double getLeftStickY () {
-        return applyDeadband(−controller.getRawAxis(XboxController.Axis.kLeftY . value ) ) ;
+        return applyDeadband(-controller.getRawAxis(XboxController.Axis.kLeftY . value ) ) ;
     }
 
 
@@ -79,7 +79,7 @@ Functions*/
     }
 
     public double getRightStickY () {
-        return applyDeadband(−controller.getRawAxis(XboxController.Axis.
+        return applyDeadband(-controller.getRawAxis(XboxController.Axis.
         kRightY . value ) ) ;
     }
 
@@ -106,5 +106,11 @@ Functions*/
     ∗ between the deadband and 1.0 is scaled from 0.0 to 1.0. ∗
     ∗ @param value value to clip
     ∗ @param deadband range around zero */
-    
+    private double applyDeadband(double value) {
+        return applyDeadband(value , 0.09) ;
+    }
+
+    public int getControllerPin(){
+        return controllerPin;
+    }
 }

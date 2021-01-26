@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
     default void writePeriodicOutputs() {    
 
     }
-    @Override    default void periodic() {       
+    @Override    
+    default void periodic() {       
          readPeriodicInputs();        
          writePeriodicOutputs();    
     }        

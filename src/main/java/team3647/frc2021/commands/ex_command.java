@@ -1,13 +1,13 @@
 package team3647.frc2021.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team3647.frc2021.subsystems.Drivetrain;
 
 public class ex_command extends CommandBase{
     private final Drivetrain drivetrain;
     Joystick joy1 = new Joystick(0);
-    Joystick joy2 = new Joystick(1);
     
     public ex_command(Drivetrain drive){
         drivetrain = drive;

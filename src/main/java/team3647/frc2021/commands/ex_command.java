@@ -6,7 +6,8 @@ import team3647.frc2021.subsystems.Drivetrain;
 
 public class ex_command extends CommandBase{
     private final Drivetrain drivetrain;
-    
+    Joystick joy1 = new Joystick(0);
+    Joystick joy2 = new Joystick(1);
     
     public ex_command(Drivetrain drive){
         drivetrain = drive;
@@ -20,7 +21,7 @@ public class ex_command extends CommandBase{
 
     @Override
     public void execute() {
-        
+        drivetrain.arcadeDrive(joy1.getY(), joy1.getX(), false);
     }
 
     @Override

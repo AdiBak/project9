@@ -55,6 +55,9 @@ public class Drivetrain implements PeriodicSubsystem {
         rightSlave1.follow(rightMaster);
         rightSlave2.follow(rightMaster);
 
+        rightMaster.setInverted(true);
+        leftMaster.setInverted(false);
+        
         kEncoderVelocityToMetersPerSecond =
                 m_leftPIDConfig.kEncoderVelocityToRPM * kWheelDiameterMeters * Math.PI / 60.0;
 

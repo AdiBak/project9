@@ -8,35 +8,25 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team3647.frc2021.subsystems.Drivetrain;
 
-public class commandone extends CommandBase {
-  private final Drivetrain drivetrain;
-    Joystick joy1 = new Joystick(0);
-  private int driveDistance;
-  private double distanceToDrive;
-
-  /**
-   * Creates a new commandone.
-   * 
-   * @param drive
-   */
-  public commandone(Drivetrain drive, int feet, int inches) {
+public class normaldrivecmd extends CommandBase {
+  /** Creates a new normaldrivecmd. */
+  Drivetrain drivetrain;
+  Joystick joystick = new Joystick(0);
+  public normaldrivecmd() {
     // Use addRequirements() here to declare subsystem dependencies.
-    drivetrain = drive;
-    addRequirements(drive);
-    driveDistance = inches + (12 * feet);
+    
+    addRequirements(drivetrain);
 
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    distanceToDrive = drivetrain.getLeftPosition() + driveDistance;
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.arcadeDrive(3, 0, false);
+    drivetrain.arcadeDrive(joystick.getX(), joystick.getX(), false);
   }
 
   // Called once the command ends or is interrupted.
@@ -48,7 +38,6 @@ public class commandone extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return drivetrain.getLeftPosition() >= distanceToDrive;
+    return false;
   }
 }
-

@@ -20,13 +20,6 @@ public class Drivetrain implements PeriodicSubsystem {
     private VictorSPX rightSlave1 = new VictorSPX(5);
     private VictorSPX rightSlave2 = new VictorSPX(6);
 
-
-    public static final double kDefaultQuickStopThreshold = 0.2;
-    public static final double kDefaultQuickStopAlpha = 0.1;
-    private double m_quickStopThreshold = kDefaultQuickStopThreshold;
-    private double m_quickStopAlpha = kDefaultQuickStopAlpha;
-    private double m_quickStopAccumulator;
-
     private final ClosedLoopConfig m_leftPIDConfig;
     private final ClosedLoopConfig m_rightPIDConfig;
 
@@ -42,7 +35,7 @@ public class Drivetrain implements PeriodicSubsystem {
 
     private boolean shifted;
 
-    public Drivetrain(ClosedLoopConfig leftMasterPIDConfig, ClosedLoopConfig rightMasterPIDConfig, double kWheelDiameterMeters, double kS, double kV, double kA, int climbLimitSwitch) {
+    public Drivetrain(ClosedLoopConfig leftMasterPIDConfig, ClosedLoopConfig rightMasterPIDConfig, double kWheelDiameterMeters, double kS, double kV, double kA) {
         if (constructCount > 0) {
             throw new UnsupportedOperationException("Drivetrain was already initialized once");
         }

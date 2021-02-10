@@ -13,6 +13,7 @@ public class autodrivecmd extends CommandBase {
     Joystick joy1 = new Joystick(0);
   private int driveDistance;
   private double distanceToDrive;
+  
 
   /**
    * Creates a new commandone.
@@ -36,7 +37,7 @@ public class autodrivecmd extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.arcadeDrive(3, 0, false);
+    drivetrain.arcadeDrive(joy1.getY(), joy1.getX(), false);
   }
 
   // Called once the command ends or is interrupted.
